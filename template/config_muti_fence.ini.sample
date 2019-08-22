@@ -1,4 +1,4 @@
-pcs_template=muti.pcs.template
+pcs_template=muti_fence.pcs.template
 OCF_ROOT=/usr/lib/ocf
 RESOURCE_LIST="msPostgresql vip-master vip-slave"
 pha4pgsql_dir=/opt/pha4pgsql
