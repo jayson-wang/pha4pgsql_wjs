@@ -1,11 +1,11 @@
 
 pcs cluster cib pgsql_cfg
 
-pcs -f pgsql_cfg stonith create stonith-fence01  fence_ipmilan  login="${fence_user}" passwd="${fence_pass}"  lanplus="true"    pcmk_host_list="${node1}" ipaddr="${node1_idrac_ip}" pcmk_reboot_action='reboot' pcmk_reboot_timeout=600s pcmk_reboot_retries=6  pcmk_host_check="static-list"  op monitor interval=60s
+pcs -f pgsql_cfg stonith create stonith-fence01  fence_ipmilan  login="${fence_user}" passwd="${fence_pass}"  lanplus="true"    pcmk_host_list="${node1}" ipaddr="${node1_idrac_ip}" pcmk_reboot_action='reboot' pcmk_reboot_timeout=600s pcmk_reboot_retries=6 delay=20   pcmk_host_check="static-list"  op monitor interval=60s
 
-pcs -f pgsql_cfg stonith create stonith-fence02  fence_ipmilan  login="${fence_user}" passwd="${fence_pass}"  lanplus="true"   pcmk_host_list="${node2}" ipaddr="${node2_idrac_ip}" pcmk_reboot_action='reboot' pcmk_reboot_timeout=600s pcmk_reboot_retries=6  pcmk_host_check="static-list" op monitor interval=60s
+pcs -f pgsql_cfg stonith create stonith-fence02  fence_ipmilan  login="${fence_user}" passwd="${fence_pass}"  lanplus="true"   pcmk_host_list="${node2}" ipaddr="${node2_idrac_ip}" pcmk_reboot_action='reboot' pcmk_reboot_timeout=600s pcmk_reboot_retries=6 delay=20   pcmk_host_check="static-list" op monitor interval=60s
 
-pcs  -f pgsql_cfg stonith create stonith-fence03  fence_ipmilan  login="${fence_user}" passwd="${fence_pass}" lanplus="true"   pcmk_host_list="${node3}" ipaddr="${node3_idrac_ip}"  pcmk_reboot_action='reboot' pcmk_reboot_timeout=600s pcmk_reboot_retries=6 pcmk_host_check="static-list" op monitor interval=60s
+pcs  -f pgsql_cfg stonith create stonith-fence03  fence_ipmilan  login="${fence_user}" passwd="${fence_pass}" lanplus="true"   pcmk_host_list="${node3}" ipaddr="${node3_idrac_ip}"  pcmk_reboot_action='reboot' pcmk_reboot_timeout=600s pcmk_reboot_retries=6  delay=20   pcmk_host_check="static-list" op monitor interval=60s
 
 
 pcs -f pgsql_cfg property set no-quorum-policy="stop"
